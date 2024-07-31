@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.circle-background {
+    width: 500px;
+    height: 500px;
+    background-color: #3498db; /* Circle color */
+    border-radius: 50%;
+    position: relative;
+    overflow: visible; /* Allow sections to extend beyond the circle */
+}
+
+.left-sections, .right-sections {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left-sections {
+    left: -50px; /* Adjust position to move sections outside the circle */
+}
+
+.right-sections {
+    right: -50px; /* Adjust position to move sections outside the circle */
+}
+
+.section {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px; /* Larger width */
+    height: 15px; /* Larger height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section:nth-child(odd) {
+    background-color: #e74c3c; /* Different color for odd sections */
+}
+
+.section:nth-child(even) {
+    background-color: #2ecc71; /* Different color for even sections */
+}

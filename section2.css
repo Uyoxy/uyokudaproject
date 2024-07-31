@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-image img {
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    /* border: 3px solid #333; */
+     /* Example border for the center image */
+    /* border-radius: 50%;  */
+    /* Make the center image round */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+     /* Add shadow to the center image */
+}
+
+.orbit-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-line {
+    position: absolute;
+    border: 1px dashed #555;
+    border-radius: 50%;
+}
+
+.orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    border: 2px solid #555; /* Add border to icons */
+    border-radius: 50%; /* Make icons round */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow to icons */
+    background-color: #fff; /* Add background color to icons */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+/* Tooltip styles */
+.icon::before {
+    content: attr(data-tooltip); /* Use data-tooltip attribute for tooltips */
+    position: absolute;
+    bottom: 60px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.icon:hover::before {
+    opacity: 1;
+}
+
+.icon:hover {
+    transform: translate(-50%, -50%) scale(1.2); /* Scale up on hover */
+}
+
+.clockwise {
+    animation: orbit-clockwise infinite linear;
+}
+
+.anticlockwise {
+    animation: orbit-anticlockwise infinite linear;
+}
+
+@keyframes orbit-clockwise {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(150px);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(150px);
+    }
+}
+
+@keyframes orbit-anticlockwise {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(150px);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) translateX(150px);
+    }
+}
